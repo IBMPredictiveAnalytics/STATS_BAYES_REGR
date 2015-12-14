@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>STATS BAYES REGR Extension Command</title>
+
+<link rel="stylesheet" type="text/css" href="extsyntax.css" />
+
+</head>
+
+<body>
+<h1>STATS BAYES REGR Extension Command</h1>
+
+<p>Calculate Bayesian Regression</p>
+<div class="syntax">
+<p>STATS BAYES REGR DEPENDENT = <em>dependent variable</em><sup>&#42;</sup><br/>
+INDEP = <em>independent variables</em><sup>&#42;</sup><br/>
+MODELS = ALLMODELS<sup>&#42;&#42;</sup> or STEPDOWN or STEPUP or SINGLE</p>
+
+<p>/OPTIONS COMPARISON=<em>model number</em><br/>
+POSTERIORINDEX = <em>model number</em><br/>
+ITERATIONS = <em>number</em><br/>
+PLOTMODELS = NO<sup>&#42;&#42;</sup> or YES<br/>
+PRIORSCALE = MEDIUM<sup>&#42;&#42;</sup> or WIDE or ULTRAWIDE<br/>
+MAXMODELS = <em>number</em><br/>
+</p>
+<p>/SAVE WORKSPACE = CLEAR or RETAIN</br>
+MODELFILE = "file specification"</br>
+</p>
+
+<p><sup>&#42;</sup> Required<br/>
+<sup>&#42;&#42;</sup> Default</p>
+</div>
+<p>STATS BAYES REGR /HELP prints this information and does nothing else.</p>
+
+<pre class="example"><code>STATS BAYES REGR DEPENDENT=y
+INDEP=x1 x2 x3
+/OPTIONS COMPARISON=7.
+</code></pre>
+
+<p>Split files and weights are not honored by this procedure.
+Cases with missing values are omitted.</p>
+
+<p>The procedure calculates the Bayes factors and the posterior probabilities for
+a set of models using various combinations of the independent variables as specified
+in the MODELS keyword.
+The distributions for a selected
+model can also be displayed.  The models are numbered for reference in the COMPARISON
+and POSTERIORINDEX keywords, so it is useful to first run the procedure without using them
+in order to see how the models are numbered.</p>
+
+<p><strong>DEPENDENT</strong> and <strong>INDEP</strong> specify the dependent and independent
+variable names.
+All variables must have a scale (continuous) measurement level.
+measurement level.  A constant term is automatically included.</p>
+
+<p><strong>MODELS</strong> specifies the combinations of independent variables to be used.</p>
+<ul>
+<li><strong>ALLMODELS</strong> produces results for all combinations of the variables.</li>
+<li><strong>STEPDOWN</strong> produces all the models where exactly one independent variable
+is omitted.</li>
+<li><strong>STEPUP</strong> produces all the models that include a single
+independent variable.</li>
+<li><strong>SINGLE</strong> produces a single model containing all the
+independent variables.  In this case, the COMPARISON, POSTERIORINDEX, and PLOTBAYESF
+settings do not apply, and the posterior distribution is always produced.
+</ul></p>
+
+<h2>OPTIONS</h2>
+
+<p><strong>COMPARISON</strong> specifies the based model used to calculate the
+Bayes factors.  By default, that is an intercept-only model.  Specify the
+model number to use it as the base instead.</p>
+
+<p><strong>POSTERIORINDEX</strong> specifies that the posterior distributions of
+the coefficients be specified for the selected model number.  If this keyword
+is not specified, the posterior distributions are not produced except
+in the single variable case.</p>
+
+<p><strong>ITERATIONS</strong> specifies the number of iterations (samples) to
+use for the posterior.  The default value is 1000.</p>
+<p><strong>PRIORSCALE</strong> specifies the prior scale on all standardized slopes</p>
+
+<p><strong>PLOTMODELS</strong> produces a plot of the Bayes factors.  With more than
+a few models, however, the plot becomes unreadable.</p>
+
+<p><strong>MAXMODELS</strong> specifies the maximum number of models to estimate.  If
+ALLMODELS are estimated, the number to estimate can quickly become very large and
+take a long time to compute.  The default value is 10,000.</p>
+
+<h2>SAVE</h2>
+
+<p><strong>WORKSPACE</strong> specifies whether the workspace should be cleared
+or retained after the procedure completes.  By default, it is cleared.</p>
+
+<p><strong>MODELFILE</strong> specifies a file name to which the model information will
+be written as an R workspace for later use.</p>
+
+<h3>Acknowledgements</h3>
+This procedure uses the R BayesFactor package.
+
+<p>Richard D. Morey and Jeffrey N. Rouder (2015). BayesFactor: Computation of Bayes
+  Factors for Common Designs.</br>
+  http://CRAN.R-project.org/package=BayesFactor
+</p>
+
+<p>&copy; Copyright IBM Corp. 1989, 2015</p>
+
+</body>
+
+</html>
+

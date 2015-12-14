@@ -1,0 +1,16 @@
+Name: STATS BAYES REGR
+Dialog-Specs: STATS_BAYES_REGR.spd
+Command-Specs: STATS_BAYES_REGR.xml
+Code-Files: STATS_BAYES_REGR.R
+Misc-Files: extsyntax.css,markdown.html,IBMdialogicon.png
+Summary: Compute Bayesian regression models
+Description: This procedure calculates Bayes factors for sets of regre
+ ssion models and the posterior distribution.  Only continuous (scale 
+ level) variables can be used.
+Author: JKP, IBM SPSS
+Version: 1.0.1
+Product-Version: 21
+Date: 9/16/2015
+Categories: regression, Bayes
+Plugins: R
+R-Packages: BayesFactor

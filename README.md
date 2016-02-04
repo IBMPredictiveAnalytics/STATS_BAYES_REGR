@@ -5,7 +5,7 @@ This procedure calculates Bayes factors for sets of regression models and the po
 ---
 Requirements
 ----
-- IBM SPSS Statistics 18 or later
+- IBM SPSS Statistics 18 or later and the corresponding IBM SPSS Statistics-Integration Plug-in for R.
 
 ---
 Installation intructions

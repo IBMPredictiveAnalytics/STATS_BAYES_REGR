@@ -8,7 +8,7 @@ Description: This procedure calculates Bayes factors for sets of regre
  ssion models and the posterior distribution.  Only continuous (scale
  level) variables can be used.
 Author: JKP, IBM SPSS
-Version: 1.0.2
+Version: 1.0.3
 Product-Version: 21
 Date: 9/16/2015
 Categories: regression, Bayes

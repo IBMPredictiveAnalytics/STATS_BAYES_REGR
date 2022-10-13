@@ -1,4 +1,5 @@
 Name: STATS BAYES REGR
+Display-Name: Bayesian Regression Models
 Dialog-Specs: STATS_BAYES_REGR.spd
 Command-Specs: STATS_BAYES_REGR.xml
 Code-Files: STATS_BAYES_REGR.R
